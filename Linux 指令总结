@@ -1,0 +1,68 @@
+control + c 或 q : 终止当前操作
+
+cd ~ : 退回到Home目录
+touch 文件名 : 创建新文件
+gedit 文件名 ： 用gedit编辑器打开文件来编辑
+chmod 数字 文件名 ： 设置文件的可执行权限
+chown 用户名 ： 把文件所有者改成该用户
+./文件名 ： 执行文件
+
+pwd : 显示当前所在绝对目录
+mkdir -p a/b/c : 创建多级目录
+cp 文件名 目录名 ： 复制文件到目录中
+cp -r 目录 目录 ： 复制目录到目录中
+rm 文件名 ： 删除文件
+rm -f 文件名 ： 强制删除只读文件
+rm -r 目录名 ： 删除目录
+mv 文件 目的目录 ： 移动文件
+mv 旧文件吗 新文件名 ： 重命名文件
+cat 文件名 ： 打印文件内容
+cat -n 文件名 ： 打印并显示行号
+nl 文件名 ： 打印带行号的内容
+more 文件名 ： 打开文件一屏的内容，Enter向下滚动一行，Space滚动一屏
+tail 文件名 ： 只查看最后10行
+tail -n 数字 文件名 ： 只看最后n行
+file 文件名 ： 查看文件类型
+
+tmp=a : 给tmp变量赋值a
+echo $tmp : 显示变量的值 $表示引用！！
+export temp : 导出变量tmp为环境变量
+unset temp : 删除环境变量
+如果想要添加一个永久生效的环境变量，只需要打开 /etc/profile，在最后加上你想添加的环境变量就好。
+
+文件名.sh ： linux的脚本文件
+文件名.c : C语言文件
+gcc -o 文件名.c : 生成可执行的文件
+
+echo "PATH=$PATH:/home/wanhongjia/mybin" >> .zshrc : 将自定义路径添加到环境变量中
+上述命令中 >> 表示将标准输出以追加的方式重定向到一个文件中，注意前面用到的 > 是以覆盖的方式重定向到一个文件中
+source .zshrc ： 让环境变量立即生效
+
+sudo apt-get update : 访问源列表里的每个网址，并读取软件列表，然后保存在本地电脑
+sudo apt-get upgrade : 把本地已安装的软件，与刚下载的软件列表里对应软件进行对比，如果发现已安装的软件版本太低，就会提示你更新
+sudo apt-get install 名字 ： 安装某一个功能
+
+locate /etc/sh : 查找etc下所有以sh开头的文件
+locate /usr/share/\*.jpg : 查找目录下所有jpg文件 
+which 软件名 ： 是否安装了某个软件，只从path指定路径去查找
+find path -name 文件名 : 搜索某个名字的文件或目录
+find ~ -mtime 0 : 列出当天有改动的文件
+
+zip -r -q -o shiyanlou.zip /home/shiyanlou/Desktop : 将目录 /home/shiyanlou/Desktop 打包成一个文件，并查看了打包后文件的大小和类型。第一行命令中，-r 参数表示递归打包包含子目录的全部内容，-q 参数表示为安静模式，即不向屏幕输出信息，-o，表示输出文件，需在其后紧跟打包输出文件名。
+-9 or -1 : 设置压缩级别为 9 和 1（9 最大，1 最小）
+-e : 加密压缩包
+
+du : 查看占用空间大小
+unzip -q shiyanlou.zip -d ziptest ： 使用安静模式，将文件解压到指定目录
+
+tar -cf shiyanlou.tar /home/shiyanlou/Desktop ： -c 表示创建一个 tar 包文件，-f 用于指定创建的文件名
+tar -xf shiyanlou.tar -C tardir ：解包一个文件（-x 参数）到指定路径的已存在目录（-C 参数）：
+
+df -h : 查看磁盘容量
+dd if=输入文件名 of=输出文件名 bs=每块的大小 count=块数 conv=转换方式 ： 用指定大小的块拷贝一个文件，并在拷贝的同时进行指定的转换
+sudo mkfs.ext4 文件名 : 将我们的虚拟磁盘镜像格式化为ext4文件系统
+
+type 命令名称 ： 返回命令的类型
+help 命令 ： 返回内部命令帮助
+命令 --help : 返回外部命令帮助
+man 指令 ： 得到更详细的帮助
